@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import ContactItem from './ContactItem';
+import s from './Phonebook.module.css';
 const Contacts = ({ contacts, deleteContact }) => (
-  <ul>
+  <ul className={s.list}>
     {contacts.map(({ name, id, number }) => (
-      <li key={id}>
+      <li key={id} className={s.item}>
         <ContactItem
           name={name}
           deleteContact={deleteContact}

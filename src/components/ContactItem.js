@@ -1,10 +1,15 @@
 import PropTypes from 'prop-types';
+import s from './Phonebook.module.css';
 const ContactItem = ({ name, deleteContact, id, number }) => (
   <>
-    <div>{name}: </div>
-    <div>{number}: </div>
-    <button type="button" onClick={() => deleteContact(id)}>
-      &#215;
+    <div>&#128222; {name}: </div>
+    <div className={s.number}> {number} </div>
+    <button
+      className={s.btnClose}
+      type="button"
+      onClick={() => deleteContact(id)}
+    >
+      &#10008;
     </button>
   </>
 );

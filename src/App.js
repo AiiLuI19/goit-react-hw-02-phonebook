@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Form from './components/Form';
 import Contacts from './components/Contacts';
 import Filter from './components/Filter';
+import s from './components/Phonebook.module.css';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 class App extends Component {
   state = {
     contacts: [
@@ -22,7 +24,7 @@ class App extends Component {
         ({ name }) => name.toLowerCase() === data.name.toLowerCase()
       )
     ) {
-      alert(`${data.name} is already in contacts`);
+      Notify.warning(`${data.name} is already in contacts`);
       return;
     }
     this.setState({ contacts: [data, ...this.state.contacts] });
@@ -43,7 +45,7 @@ class App extends Component {
       contact.name.toLowerCase().includes(normalize)
     );
     return (
-      <div>
+      <div className={s.container}>
         <h1>Phonebook</h1>
         <Form onSubmit={this.formSubmitHandler} />
 
